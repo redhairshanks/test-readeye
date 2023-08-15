@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+        <TITLE>ReadText</TITLE>
+        <link rel="stylesheet" type="text/css" href="./css/style.css">
+        <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/localforage/1.8.1/localforage.js"></script>
+        <script src="./webgazer.js"></script>
+        <script src="./js/readtext.js"></script>
+    </head>
+    <body LANG="en-US" LINK="#0000ff" DIR="LTR">
+        <script src="./node_modules/sweetalert/dist/sweetalert.min.js"></script>
+        <div class="container-fluid">
+        	<div class="toast" style="position: absolute; top: 10px; right: 0;" id="toast">
+        	  <div class="toast-header">
+        	    <strong class="mr-auto">Error</strong>
+        	  </div>
+        	  <div class="toast-body">
+        	    Please start before finish!
+        	  </div>
+        	</div>
+          <p class="text-center mt-4">Click start and read the following text line by line and click on the finish button at the bottom.</p>
+          <div class="row justify-content-center mt-3">
+            <button class="btn btn-light" id="start">Start</button>
+          </div>
+          
+        	<h1 class="display-1 justify-content-center mt-3" style="font-size: 72px;">
+        		We acquire a blue bar.
+        		My art is my unique fin.
+        		Should we now go to Pear and Lisa?
+        		They dwell in a golden hut in the city.
+        		Pear owns an oak.
+        		Pear is the leader.
+        		Lisa has a puzzle with ten pieces.
+        		Shall we begin? he asks.
+        		Yes, we shall, Pear responds.
+        	</h1>
+          <div class="row justify-content-center mt-3">
+            <button class="btn bg-light" id="finish">Finish</button>
+          </div>
+        	
+        </div>
+
+        <div class="modal" tabindex="-1" role="dialog" id="finish_modal">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Results of reading test</h5>
+              </div>
+              <div class="modal-body">
+                <p>Percentage = <span id="percentage"></span></p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="close">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Latest compiled JavaScript -->
+        <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    </body>
+</html>
+
+
+
+
+
+
+

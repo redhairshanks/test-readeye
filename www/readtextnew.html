@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+        <TITLE>WebGazer Demo</TITLE>
+        <link rel="stylesheet" type="text/css" href="./public/style.css">
+        <link rel="stylesheet" href="./public/bootstrap.min.css">
+        <!-- <script src="./tensorflow.js"></script> -->
+        <script src="./public/webgazer.js"></script>
+    </head>
+    <body LANG="en-US" LINK="#0000ff" DIR="LTR">
+      <canvas id="plotting_canvas" width="500" height="500" style="cursor:crosshair;overflow-x:none;"></canvas>
+        <script src="./public/sweetalert.min.js"></script>
+        <script src="./public/readtextnew.js"></script>
+        <script src="./public/calibration.js"></script>
+        <script src="./public/precision_calculation.js"></script>
+        <script src="./public/precision_store_points.js"></script>
+        <nav id="webgazerNavbar" class="navbar navbar-expand-lg navbar-default navbar-fixed-top navbar-dark bg-dark">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#myNavbar">
+                <span class="navbar-toggler-icon">Menu</span>
+              </button>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+              <ul class="nav navbar-nav">
+                <!-- Accuracy -->
+                <li id="Accuracy"><a>Not yet Calibrated</a></li>
+                <li><a onclick="Restart()" href="#">Recalibrate</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <div class="row d-none" id="readtext">
+          <div class="col-3" >
+          </div>
+          <div class="col-9">
+            <div class="row mt-3 " style="font-size:18px;">
+              <div class="col-12 text-center d-none" id="results_div">
+                <p>Your final score is: <span id="Results"></span></p>
+                <p class="text-danger">To redo the evaluation follow the instructions below</p>
+              </div>
+            </div>
+            <div class="" >
+                <p class="text-center" style="font-size:18px;">Click the Start button and read the text below. After you finish reading , click the Finish button</p>
+                <div class="text-center mt-3">
+                  <button class="btn btn-primary justify-content-center" id="start">Start</button>
+                </div>
+                
+                <h1 class="display-1 justify-content-center mt-3" style="font-size: 64px;">
+                  We acquire a blue bar.
+                  My art is my unique fin.
+                  Should we now go to Pear and Lisa?
+                  They dwell in a golden hut in the city.
+                  Pear owns an oak.
+                  Pear is the leader.
+                  Lisa has a puzzle with ten pieces.
+                  Shall we begin? he asks.
+                  Yes, we shall, Pear responds.
+                </h1>
+                <div class="text-center mt-3">
+                  <button class="btn btn-primary justify-content-center" id="finish">Finish</button>
+                </div>
+              </div>
+
+              <div class="modal" tabindex="-1" role="dialog" id="finish_modal">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Results of reading test</h5>
+                    </div>
+                    <div class="modal-body">
+                      <p>Percentage = <span id="percentage"></span></p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal" id="close">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <div class="calibrationDiv">
+            <input type="button" class="Calibration" id="Pt1"></input>
+            <input type="button" class="Calibration" id="Pt2"></input>
+            <input type="button" class="Calibration" id="Pt3"></input>
+            <input type="button" class="Calibration" id="Pt4"></input>
+            <input type="button" class="Calibration" id="Pt5"></input>
+            <input type="button" class="Calibration" id="Pt6"></input>
+            <input type="button" class="Calibration" id="Pt7"></input>
+            <input type="button" class="Calibration" id="Pt8"></input>
+            <input type="button" class="Calibration" id="Pt9"></input>
+        </div>
+        <div id="helpModal" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-body">
+                <p>Calibration steps</p>
+                <p>Please click on each of the 9 points on the screen. You must click on each point 5 times till it goes yellow. This will calibrate your eye movements.</p>
+              </div>
+              <div class="modal-footer">
+                <button id="closeBtn" type="button" class="btn btn-default" data-bs-dismiss="modal">Close & load saved model </button>
+                <button type="button" id='start_calibration' class="btn btn-primary" data-bs-dismiss="modal" onclick="Restart()">Calibrate</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <script src="./public/resize_canvas.js"></script>
+        <script src="./public/bootstrap.bundle.min.js"></script>
+        </div>
+    </body>
+</html>
